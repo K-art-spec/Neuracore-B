@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "@/lib/auth/session-provider";
 import { createClient } from "@/app/lib/supabase/client";
 import { toast } from "sonner"; // 🔹 import toast
+import MicrosoftLoginButton from "@/components/auth/MicrosoftLoginButton";
 
 const LoginForm = () => {
   const supabase = createClient();
@@ -153,6 +154,16 @@ const LoginForm = () => {
             'Log In'
           )}
         </button>
+
+        <div className="flex items-center w-full mt-4 mb-4">
+          <div className="flex-1 border-t border-border-secondary"></div>
+          <span className="px-3 text-xs text-neutral-500">or</span>
+          <div className="flex-1 border-t border-border-secondary"></div>
+        </div>
+
+        <div className="w-full">
+          <MicrosoftLoginButton />
+        </div>
 
         <p className="text-[10px] mt-5 text-text-secondary text-center">
           Don't have an account?{" "}

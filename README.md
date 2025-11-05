@@ -1,6 +1,14 @@
 ## Neuracore
 
-This is a Next.js app.
+A Next.js innovation platform with collaborative tools, idea submission, and AI-powered assistance.
+
+## Features
+
+- ✅ **Smart Chatbot** - Context-aware assistant with message history and typing indicators
+- ✅ **Microsoft OAuth Login** - Single sign-on with Microsoft/Azure accounts
+- ✅ **Idea Management** - Submit, view, and track ideas with comments and likes
+- ✅ **User Profiles** - Achievements, stats, and personalized dashboards
+- ✅ **Leaderboard** - Community rankings and engagement metrics
 
 ## Getting Started
 

@@ -26,7 +26,16 @@ export default function MicrosoftLoginButton({ label = "Sign in with Microsoft",
   };
 
   return (
-    <button onClick={onClick} className="px-3 py-2 rounded border">
+    <button 
+      onClick={onClick} 
+      className="w-full px-4 py-3 bg-[#2F2F2F] hover:bg-[#3A3A3A] text-white rounded-lg font-medium text-sm transition duration-200 flex items-center justify-center gap-2 border border-border-secondary hover:border-border-primary"
+    >
+      <svg className="w-5 h-5" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
+        <rect x="12" y="0" width="10" height="10" fill="#7FBA00"/>
+        <rect x="0" y="12" width="10" height="10" fill="#00A4EF"/>
+        <rect x="12" y="12" width="10" height="10" fill="#FFB900"/>
+      </svg>
       {label}
     </button>
   );

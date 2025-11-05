@@ -56,29 +56,45 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="border rounded p-3 max-w-md w-full">
-      <div ref={scrollRef} className="h-64 overflow-y-auto space-y-2 mb-3">
+    <div className="bg-bg-gray rounded-3xl p-4 md:p-6 max-w-md w-full border border-border-secondary">
+      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border-secondary">
+        <div className="w-2 h-2 bg-color-border-primary rounded-full animate-pulse"></div>
+        <h3 className="text-white font-semibold text-sm">Neuracore Assistant</h3>
+      </div>
+      <div ref={scrollRef} className="h-64 overflow-y-auto space-y-3 mb-4 pr-2">
         {messages.map((m, i) => (
-          <div key={i} className={m.role === "user" ? "text-right" : "text-left"}>
-            <span className={"inline-block px-2 py-1 rounded " + (m.role === "user" ? "bg-blue-100" : "bg-gray-100")}>{m.text}</span>
+          <div key={i} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
+            <div className={`max-w-[80%] px-3 py-2 rounded-lg ${
+              m.role === "user" 
+                ? "bg-color-border-primary text-white" 
+                : "bg-[#242424] text-neutral-300 border border-border-secondary"
+            }`}>
+              <p className="text-sm">{m.text}</p>
+            </div>
           </div>
         ))}
         {busy && (
-          <div className="text-left">
-            <span className="inline-block px-2 py-1 rounded bg-gray-100">Typing…</span>
+          <div className="flex justify-start">
+            <div className="bg-[#242424] border border-border-secondary px-3 py-2 rounded-lg">
+              <span className="text-neutral-400 text-sm">Typing...</span>
+            </div>
           </div>
         )}
       </div>
       <div className="flex gap-2">
         <input
-          className="flex-1 border rounded px-2 py-1"
-          placeholder="Type a message..."
+          className="flex-1 text-white bg-[#242424] rounded-lg border-none outline-none px-3 py-2 text-sm placeholder:text-neutral-500 transition duration-400 hover:shadow-[0_0_0_0.15vw_rgba(223,22,22,0.4)] focus:shadow-[0_0_0_0.15vw_#DF1616]"
+          placeholder="Ask me anything..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}
           disabled={busy}
         />
-        <button className="px-3 py-1 border rounded" onClick={send} disabled={busy}>
+        <button 
+          className="px-4 py-2 bg-color-btn-primary hover:bg-color-btn-primary-hover text-color-btn-text rounded-lg font-medium text-sm transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={send} 
+          disabled={busy || !input.trim()}
+        >
           Send
         </button>
       </div>
