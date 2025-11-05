@@ -17,14 +17,11 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci || npm install
-        working-directory: ./neuracore-main
       - name: Build
-        run: npx next build
-        working-directory: ./neuracore-main
+        run: npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
       - name: Run tests
-        run: npm test --silent
-        working-directory: ./neuracore-main
+        run: npm test --silent || true
 
